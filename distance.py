@@ -84,6 +84,13 @@ import numpy as np
 
 import _distance_wrap
 
+def _convert_to_bool(X):
+    if X.dtype != bool:
+        X = X.astype(bool)
+    if not X.flags.contiguous:
+        X = X.copy()
+    return X
+
 def _convert_to_double(X):
     if X.dtype != np.double:
         X = X.astype(np.double)
