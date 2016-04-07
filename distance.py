@@ -84,6 +84,17 @@ import numpy as np
 
 import _distance_wrap
 
+def _copy_array_if_base_present(a):
+    """
+    Copies the array if its base points to a parent array.
+    """
+    if a.base is not None:
+        return a.copy()
+    elif np.issubsctype(a, np.float32):
+        return np.array(a, dtype=np.double)
+    else:
+        return a
+
 def _convert_to_bool(X):
     if X.dtype != bool:
         X = X.astype(bool)
