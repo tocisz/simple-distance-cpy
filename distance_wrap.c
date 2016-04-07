@@ -46,8 +46,8 @@
 #include <math.h>
 #include <stdlib.h>
 #include <Python.h>
-#include "numpy/arrayobject.h"
-#include "numpy/npy_math.h"
+#include <numpy/arrayobject.h>
+#include <numpy/npy_math.h>
 
 #include "distance_impl.h"
 
@@ -109,7 +109,7 @@ static PyObject *cdist_mahalanobis_wrap(PyObject *self, PyObject *args) {
   const double *XA, *XB;
   const double *covinv;
   if (!PyArg_ParseTuple(args, "O!O!O!O!",
-			&PyArray_Type, &XA_, &PyArray_Type, &XB_, 
+			&PyArray_Type, &XA_, &PyArray_Type, &XB_,
 			&PyArray_Type, &covinv_,
 			&PyArray_Type, &dm_)) {
     return 0;
@@ -143,7 +143,7 @@ static PyObject *cdist_seuclidean_wrap(PyObject *self, PyObject *args) {
   double *dm;
   const double *XA, *XB, *var;
   if (!PyArg_ParseTuple(args, "O!O!O!O!",
-			&PyArray_Type, &XA_, &PyArray_Type, &XB_, 
+			&PyArray_Type, &XA_, &PyArray_Type, &XB_,
 			&PyArray_Type, &var_,
 			&PyArray_Type, &dm_)) {
     return 0;
@@ -170,7 +170,7 @@ static PyObject *cdist_hamming_bool_wrap(PyObject *self, PyObject *args) {
   double *dm;
   const char *XA, *XB;
   if (!PyArg_ParseTuple(args, "O!O!O!",
-			&PyArray_Type, &XA_, &PyArray_Type, &XB_, 
+			&PyArray_Type, &XA_, &PyArray_Type, &XB_,
 			&PyArray_Type, &dm_)) {
     return 0;
   }
@@ -195,7 +195,7 @@ static PyObject *cdist_jaccard_bool_wrap(PyObject *self, PyObject *args) {
   double *dm;
   const char *XA, *XB;
   if (!PyArg_ParseTuple(args, "O!O!O!",
-			&PyArray_Type, &XA_, &PyArray_Type, &XB_, 
+			&PyArray_Type, &XA_, &PyArray_Type, &XB_,
 			&PyArray_Type, &dm_)) {
     return 0;
   }
@@ -221,7 +221,7 @@ static PyObject *cdist_minkowski_wrap(PyObject *self, PyObject *args) {
   const double *XA, *XB;
   double p;
   if (!PyArg_ParseTuple(args, "O!O!O!d",
-			&PyArray_Type, &XA_, &PyArray_Type, &XB_, 
+			&PyArray_Type, &XA_, &PyArray_Type, &XB_,
 			&PyArray_Type, &dm_,
 			&p)) {
     return 0;
@@ -247,7 +247,7 @@ static PyObject *cdist_weighted_minkowski_wrap(PyObject *self, PyObject *args) {
   const double *XA, *XB, *w;
   double p;
   if (!PyArg_ParseTuple(args, "O!O!O!dO!",
-			&PyArray_Type, &XA_, &PyArray_Type, &XB_, 
+			&PyArray_Type, &XA_, &PyArray_Type, &XB_,
 			&PyArray_Type, &dm_,
 			&p,
 			&PyArray_Type, &w_)) {
@@ -274,7 +274,7 @@ static PyObject *cdist_dice_bool_wrap(PyObject *self, PyObject *args) {
   double *dm;
   const char *XA, *XB;
   if (!PyArg_ParseTuple(args, "O!O!O!",
-			&PyArray_Type, &XA_, &PyArray_Type, &XB_, 
+			&PyArray_Type, &XA_, &PyArray_Type, &XB_,
 			&PyArray_Type, &dm_)) {
     return 0;
   }
@@ -299,7 +299,7 @@ static PyObject *cdist_rogerstanimoto_bool_wrap(PyObject *self, PyObject *args) 
   double *dm;
   const char *XA, *XB;
   if (!PyArg_ParseTuple(args, "O!O!O!",
-			&PyArray_Type, &XA_, &PyArray_Type, &XB_, 
+			&PyArray_Type, &XA_, &PyArray_Type, &XB_,
 			&PyArray_Type, &dm_)) {
     return 0;
   }
@@ -324,7 +324,7 @@ static PyObject *cdist_russellrao_bool_wrap(PyObject *self, PyObject *args) {
   double *dm;
   const char *XA, *XB;
   if (!PyArg_ParseTuple(args, "O!O!O!",
-			&PyArray_Type, &XA_, &PyArray_Type, &XB_, 
+			&PyArray_Type, &XA_, &PyArray_Type, &XB_,
 			&PyArray_Type, &dm_)) {
     return 0;
   }
@@ -349,7 +349,7 @@ static PyObject *cdist_kulsinski_bool_wrap(PyObject *self, PyObject *args) {
   double *dm;
   const char *XA, *XB;
   if (!PyArg_ParseTuple(args, "O!O!O!",
-			&PyArray_Type, &XA_, &PyArray_Type, &XB_, 
+			&PyArray_Type, &XA_, &PyArray_Type, &XB_,
 			&PyArray_Type, &dm_)) {
     return 0;
   }
@@ -374,7 +374,7 @@ static PyObject *cdist_sokalmichener_bool_wrap(PyObject *self, PyObject *args) {
   double *dm;
   const char *XA, *XB;
   if (!PyArg_ParseTuple(args, "O!O!O!",
-			&PyArray_Type, &XA_, &PyArray_Type, &XB_, 
+			&PyArray_Type, &XA_, &PyArray_Type, &XB_,
 			&PyArray_Type, &dm_)) {
     return 0;
   }
@@ -399,7 +399,7 @@ static PyObject *cdist_sokalsneath_bool_wrap(PyObject *self, PyObject *args) {
   double *dm;
   const char *XA, *XB;
   if (!PyArg_ParseTuple(args, "O!O!O!",
-			&PyArray_Type, &XA_, &PyArray_Type, &XB_, 
+			&PyArray_Type, &XA_, &PyArray_Type, &XB_,
 			&PyArray_Type, &dm_)) {
     return 0;
   }

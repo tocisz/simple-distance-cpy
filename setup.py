@@ -6,7 +6,7 @@ distance_wrap = Extension('_distance_wrap',
     )
 
 setup(name = 'simple-distance-cpy',
-      version = '0.12',
+      version = '0.13',
       description = 'I want euclidean cdist and I want it fast',
       ext_modules = [distance_wrap],
 
