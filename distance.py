@@ -82,7 +82,7 @@ __all__ = [
 import warnings
 import numpy as np
 
-from . import _distance_wrap
+import _distance_wrap
 
 def _convert_to_double(X):
     if X.dtype != np.double:
