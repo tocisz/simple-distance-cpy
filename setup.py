@@ -8,7 +8,7 @@ distance_wrap = Extension('_distance_wrap',
     )
 
 setup(name = 'simple-distance-cpy',
-      version = '0.17',
+      version = '0.18',
       description = 'I want euclidean cdist and I want it now',
       py_modules = ['distance'],
       ext_modules = [distance_wrap],
