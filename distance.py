@@ -434,18 +434,14 @@ def cdist(XA, XB, metric='euclidean', p=2, V=None, VI=None, w=None):
     n = s[1]
     dm = np.zeros((mA, mB), dtype=np.double)
 
-    if isinstance(metric, string_types):
-        mstr = metric.lower()
+    mstr = metric.lower()
 
-        try:
-            validate, cdist_fn = _SIMPLE_CDIST[mstr]
-            XA = validate(XA)
-            XB = validate(XB)
-            cdist_fn(XA, XB, dm)
-            return dm
-        except KeyError:
-            pass
-    else:
-        raise TypeError('2nd argument metric must be a string identifier '
-                        'or a function.')
+    try:
+        validate, cdist_fn = _SIMPLE_CDIST[mstr]
+        XA = validate(XA)
+        XB = validate(XB)
+        cdist_fn(XA, XB, dm)
+        return dm
+    except KeyError:
+        pass
     return dm
