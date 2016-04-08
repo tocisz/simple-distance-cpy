@@ -1,14 +1,11 @@
 from distutils.core import setup, Extension
 
-distance_wrap = Extension('_distance_wrap',
-    sources = ['distance_wrap.c'],
-    include_dirs=['/app/.heroku/python/lib/python3.5/site-packages/numpy/core/include'],
-    library_dirs=['/app/.heroku/python/lib/python3.5/site-packages/numpy/core/lib'],
-    libraries=['npymath']
-    )
+import numpy.distutils.misc_util as npy_util
+npy_info = npy_util.get_info('npymath')
+distance_wrap = Extension('_distance_wrap', sources = ['distance_wrap.c'], **npy_info)
 
 setup(name = 'simple-distance-cpy',
-      version = '0.20',
+      version = '0.21',
       description = 'I want euclidean cdist and I want it now',
       py_modules = ['distance'],
       ext_modules = [distance_wrap],
